@@ -1,0 +1,19 @@
+<section data-ng-controller="MainCtrl">
+    <div class="newCityBlock-container">
+        <div class="input-group col-lg-4">
+            <input type="text" id="newCity" class="form-control" placeholder="Введите название города..." ng-model="cityName" enter-pressed="addCity()">
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="addCity()">Добавить</button>
+            </span>
+        </div>
+    </div>
+    <div ng-repeat="city in cities track by $id($index)" class="city-container" ng-mouseenter="hovering=true;changeColor(hovering,$index)" ng-mouseleave="hovering=false;changeColor(hovering,$index)">
+        <fieldset>
+            <legend>{{city.cityName}}</legend>
+            <div>{{'Температура: '+city.temp}}&deg</div>
+            <div>{{'Ветер: '+city.wind}} м/с</div>
+            <div>{{'Давление: '+city.press}} мм рт. ст.</div>
+            <div id="city-remove" class="city-remove" ng-click="removeCity($index)" ng-show="hovering"></div>
+        </fieldset>
+    </div>
+</section>
