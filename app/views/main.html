@@ -1,19 +1,26 @@
-<section data-ng-controller="MainCtrl">
-    <div class="newCityBlock-container">
-        <div class="input-group col-lg-4">
-            <input type="text" id="newCity" class="form-control" placeholder="Введите название города..." ng-model="cityName" enter-pressed="addCity()">
+<section ng-controller="MainCtrl">
+    <div ng-controller="CurrentCityCtrl" class="currentcity-container row" current-city>
+    </div>
+    <div class="search-container col-lg-4 col-lg-offset-4 row" ng-controller="SearchCtrl">
+        <div class="input-group">
+            <input type="text" id="newCity" class="form-control" placeholder="Enter the city name..." ng-model="cityName" ng-keydown="keyDown($event)" ng-focus="searchFocus()" ng-mousedown="searchBlur()">
             <span class="input-group-btn">
-                <button class="btn btn-default" ng-click="addCity()">Добавить</button>
+                <button class="btn btn-default" ng-click="addCity()">Add</button>
             </span>
         </div>
+        <ul class="search-list">
+            <li ng-style="sug.activeSug" ng-repeat="sug in suggestions" class="search-listItem" ng-click="addCity($index)" ng-show="showSuggestions">{{sug.name}}, {{sug.sys.country}}</li>
+        </ul>
     </div>
-    <div ng-repeat="city in cities track by $id($index)" class="city-container" ng-mouseenter="hovering=true;changeColor(hovering,$index)" ng-mouseleave="hovering=false;changeColor(hovering,$index)">
-        <fieldset>
-            <legend>{{city.cityName}}</legend>
-            <div>{{'Температура: '+city.temp}}&deg</div>
-            <div>{{'Ветер: '+city.wind}} м/с</div>
-            <div>{{'Давление: '+city.press}} мм рт. ст.</div>
-            <div id="city-remove" class="city-remove" ng-click="removeCity($index)" ng-show="hovering"></div>
-        </fieldset>
+    <div class="cities-container row col-lg-12" ng-controller="CitiesCtrl">
+        <div ng-repeat="city in cities track by $id($index)" class="city-container" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
+            <fieldset>
+                <legend>{{city.cityName}}, {{city.country}}</legend>
+                <div>{{'Temperature: '+city.temp}}&deg</div>
+                <div>{{'Wind: '+city.wind}} m/s</div>
+                <div>{{'Pressure: '+city.press}} hpa</div>
+                <div id="city-remove" class="city-remove" ng-click="removeCity($index)" ng-show="hovering"></div>
+            </fieldset>
+        </div>
     </div>
 </section>

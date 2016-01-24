@@ -1,12 +1,9 @@
 body{margin: 0 20px 0 20px;text-align:center;}
 .city-container{display:inline-block;margin:20px;padding:20px;font-size:12px;text-align:left;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
 border-radius: 4px;
 box-shadow: 0 4px 10px -3px #c1c1c1, 0 0 0 1px #d5d5d5 inset;
 -webkit-box-shadow: 0 4px 10px -3px #c1c1c1, 0 0 0 1px #d5d5d5 inset;
 -moz-box-shadow: 0 4px 10px -3px #c1c1c1, 0 0 0 1px #d5d5d5 inset;
--webkit-transition: all 0.5s;
 transition: all 0.5s;
 border:none;
 position:relative;

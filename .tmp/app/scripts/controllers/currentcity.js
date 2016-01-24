@@ -9,7 +9,7 @@ define(['angular'], function(angular) {
    * Controller of the weatherApp
    */
   angular.module('weatherApp.controllers.CurrentCityCtrl', [])
-    .controller('CurrentCityCtrl', function($scope, $http) {
+    .controller('CurrentCityCtrl', ["$scope", "$http", function($scope, $http) {
       getCurrentLocationWeather();
 
       var lat, lon;
@@ -39,5 +39,5 @@ define(['angular'], function(angular) {
             $scope.currentCity = response.data.name;
           });
       }
-    });
+    }]);
 });

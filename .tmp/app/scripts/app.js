@@ -21,7 +21,7 @@ define(['angular', 'controllers/main', 'controllers/currentcity', 'directives/se
       'ngRoute',
       'ngTouch'
     ])
-    .config(function($routeProvider) {
+    .config(["$routeProvider", function($routeProvider) {
       $routeProvider
         .when('/', {
           templateUrl: 'views/main.html',
@@ -31,5 +31,5 @@ define(['angular', 'controllers/main', 'controllers/currentcity', 'directives/se
         .otherwise({
           redirectTo: '/'
         });
-    });
+    }]);
 });

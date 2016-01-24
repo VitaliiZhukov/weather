@@ -7,7 +7,7 @@ define(['angular'], function(angular) {
    * @description
    * # cities
    */
-  angular.module('weatherApp.directives.Cities', [])
+  angular.module('weatherApp.directives.Search', [])
     .directive('enterPressed', function() {
       return function(scope, element, attrs) {
         element.bind('keydown keypress', function(event) {

@@ -9,7 +9,7 @@ define(['angular'], function (angular) {
    * Controller of the weatherApp
    */
   angular.module('weatherApp.controllers.MainCtrl', [])
-    .controller('MainCtrl', function($scope) {
+    .controller('MainCtrl', ["$scope", function($scope) {
       $scope.cities = JSON.parse(localStorage.getItem('cities')) || [];
-    });
+    }]);
 });
