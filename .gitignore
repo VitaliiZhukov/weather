@@ -1,6 +1,7 @@
 bower_components/
 node_modules/
 dist/
+.tmp/
 .bowerrc
 .editorconfig
 .jscsrc

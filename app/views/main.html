@@ -1,5 +1,5 @@
 <section ng-controller="MainCtrl">
-    <div ng-controller="CurrentCityCtrl" class="currentcity-container row" current-city>
+    <div ng-controller="CurrentCityCtrl" class="currentcity-container row" current-city ng-show="locationTurnedOn">
     </div>
     <div class="search-container col-lg-4 col-lg-offset-4 row" ng-controller="SearchCtrl">
         <div class="input-group">

@@ -20,9 +20,10 @@ define(['angular'], function(angular) {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
             getWeatherByCoords(lat, lon);
+            $scope.locationTurnedOn = true;
           });
         } else {
-          alert('Geolocation is turned off.');
+          $scope.locationTurnedOn = false;
         }
       }
 
